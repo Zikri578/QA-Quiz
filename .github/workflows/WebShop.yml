@@ -10,5 +10,3 @@ jobs:
         # menjalankan semua test
       - name: Regression Web Shop Demo
         uses: cypress-io/github-action@v6
-        with:
-          spec: cypress\e2e\Web-Shop
