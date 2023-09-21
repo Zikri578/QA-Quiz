@@ -7,10 +7,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           spec: |
             cypress/e2e/Web-Shop/login.cy.js
             cypress/e2e/Web-Shop/register.cy.js
+
