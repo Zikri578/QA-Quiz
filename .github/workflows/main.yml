@@ -1,15 +1,16 @@
-name: End-to-end tests Web Shop Demo
+name: Cypress tests
 on: push
 jobs:
   cypress-run:
+    name: Cypress run
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-        # menjalankan semua test
-      - name: Regression Web Shop Demo
+      - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          spec: cypress\e2e\Web-Shop\login.cy.js
-            cypress\e2e\Web-Shop\register.cy.js
+          spec: 
+            cypress/e2e/Web-Shop/login.cy.js
+            cypress/e2e/Web-Shop/register.cy.js
