@@ -11,6 +11,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          spec: 
+          spec: |
             cypress/e2e/Web-Shop/login.cy.js
             cypress/e2e/Web-Shop/register.cy.js
