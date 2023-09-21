@@ -1,0 +1,11 @@
+{
+    "validEmail" : "zikri45@yahoo.com",
+    "validPassword" : "1234567890",
+    "invalidEmail" : "blank@gmail.com",
+    "invalidPassword" : "yahoo123456",
+    "invalidFormatEmail" : "mamba12yahoo.com",
+    "invalidFormatPassword" :"1234",
+    "invalidFormatConfirmPassword" :"1234",
+    "InvalidDoNotMatchPassword" : "hallo12",    
+    "InvalidDoNotMatchConfirmPassword" : "hallo1345"
+}

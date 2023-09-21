@@ -1,0 +1,8 @@
+{
+    "validEmail" : "zikri45@yahoo.com",
+    "validPassword" : "1234567890",
+    "invalidEmail" : "black@gmail.com",
+    "invalidPassword" : "yahoo123456",
+    "invalidFormatEmail" : "mamba12yahoo.com",
+    "invalidFormatPassword" :"1234"
+}
