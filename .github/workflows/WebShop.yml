@@ -6,12 +6,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          browser: chrome, edge, firefox
 
         # menjalankan semua test
       - name: Regression Web Shop Demo
         uses: cypress-io/github-action@v6
         with:
           spec: cypress\e2e\Web-Shop
-          component: true
