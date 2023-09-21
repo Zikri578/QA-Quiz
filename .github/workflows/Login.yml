@@ -1,0 +1,18 @@
+name: End-to-end tests Web Shop Demo
+on: push
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        # with:
+        #   browser: chrome, edge, firefox
+        #   headed: true
+
+        # menjalankan semua test
+      - name: Regression Web Shop Demo
+        uses: cypress-io/github-action@v6
+        with:
+          spec: cypress/e2e/Web-Shop/Login.cy.js
+          component: true
