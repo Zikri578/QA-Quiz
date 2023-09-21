@@ -14,5 +14,5 @@ jobs:
       - name: Regression Web Shop Demo
         uses: cypress-io/github-action@v6
         with:
-          spec: cypress/e2e/Web-Shop
+          spec: cypress/e2e/Web-Shop/Register.cy.js
           component: true
