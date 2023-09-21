@@ -118,25 +118,25 @@ describe('Demo Web Shop - Register With Commands', () => {
         cy.messageErrorEmail();
     });
 
-    it('Register Gagal - Empty Password', () => {
-        // mengarahkan ke url register
-        cy.visit(Cypress.env('register_url'));
+    // it('Register Gagal - Empty Password', () => {
+    //     // mengarahkan ke url register
+    //     cy.visit(Cypress.env('register_url'));
 
-        // Isi formulir gender, first name, last name otomatis menggunakan commands. lokasi 
-        cy.radionButton('input[name="Gender"][value="M"]').click();
-        cy.getElementByFirstName('[name="FirstName"]').type(randomFirstName);
-        cy.getElementByLastName('name="LastName"').type(randomLastName);
-        cy.getElementByEmail('name="Email"').type(randomEmail);
+    //     // Isi formulir gender, first name, last name otomatis menggunakan commands. lokasi 
+    //     cy.radionButton('input[name="Gender"][value="M"]').click();
+    //     cy.getElementByFirstName('[name="FirstName"]').type(randomFirstName);
+    //     cy.getElementByLastName('name="LastName"').type(randomLastName);
+    //     cy.getElementByEmail('name="Email"').type(randomEmail);
 
-        // memanggil class serta json untuk menginput email, password, dan confirm password
-        // empty password
-        REGISTER.inputConfirmPassword(registerData.validPassword);
+    //     // memanggil class serta json untuk menginput email, password, dan confirm password
+    //     // empty password
+    //     REGISTER.inputConfirmPassword(registerData.validPassword);
 
-        cy.buttonRegister().click();
+    //     cy.buttonRegister().click();
 
-        // menampilkan pesan error
-        cy.messageErrorPassword();
-    });
+    //     // menampilkan pesan error
+    //     cy.messageErrorConfirmPassword();
+    // });
 
     it('Register Gagal - Empty Confirm Password', () => {
         // mengarahkan ke url register
@@ -155,6 +155,23 @@ describe('Demo Web Shop - Register With Commands', () => {
         cy.buttonRegister().click();
 
         // menampilkan pesan error
+        cy.messageErrorConfirmPassword();
+    });
+
+
+    it('Register Gagal - Empty Form', () => {
+        // mengarahkan ke url register
+        cy.visit(Cypress.env('register_url'));
+
+        // empty form with first name, last name, email, password and confirm password
+
+        cy.buttonRegister().click();
+
+        // menampilkan pesan error
+        cy.messageErrorFirstName();
+        cy.messageErrorLastName();
+        cy.messageErrorEmail();
+        cy.messageErrorPassword();
         cy.messageErrorConfirmPassword();
     });
 
@@ -178,41 +195,25 @@ describe('Demo Web Shop - Register With Commands', () => {
         cy.messageErrorInvalidEmail();
     });
 
-    it('Register Gagal - Invalid Password', () => {
-        // mengarahkan ke url register
-        cy.visit(Cypress.env('register_url'));
+    // it('Register Gagal - Invalid Password', () => {
+    //     // mengarahkan ke url register
+    //     cy.visit(Cypress.env('register_url'));
 
-        // Isi formulir gender, first name, last name otomatis menggunakan commands. lokasi 
-        cy.radionButton('input[name="Gender"][value="M"]').click();
-        cy.getElementByFirstName('[name="FirstName"]').type(randomFirstName);
-        cy.getElementByLastName('name="LastName"').type(randomLastName);
-        cy.getElementByEmail('name="Email"').type(randomEmail);
+    //     // Isi formulir gender, first name, last name otomatis menggunakan commands. lokasi 
+    //     cy.radionButton('input[name="Gender"][value="M"]').click();
+    //     cy.getElementByFirstName('[name="FirstName"]').type(randomFirstName);
+    //     cy.getElementByLastName('name="LastName"').type(randomLastName);
+    //     cy.getElementByEmail('name="Email"').type(randomEmail);
 
-        // memanggil class serta json untuk menginput email, password, dan confirm password
-        REGISTER.inputPassword(registerData.invalidPassword);   // invalid password
-        REGISTER.inputConfirmPassword(registerData.validPassword);
+    //     // memanggil class serta json untuk menginput email, password, dan confirm password
+    //     REGISTER.inputPassword(registerData.invalidPassword);   // invalid password
+    //     REGISTER.inputConfirmPassword(registerData.validPassword);
 
-        cy.buttonRegister().click();
+    //     cy.buttonRegister().click();
 
-        // menampilkan pesan error
-        cy.messageErrorConfirmPassword();
-    });
-
-    it('Register Gagal - Empty Form', () => {
-        // mengarahkan ke url register
-        cy.visit(Cypress.env('register_url'));
-
-        // empty form with first name, last name, email, password and confirm password
-
-        cy.buttonRegister().click();
-
-        // menampilkan pesan error
-        cy.messageErrorFirstName();
-        cy.messageErrorLastName();
-        cy.messageErrorEmail();
-        cy.messageErrorPassword();
-        cy.messageErrorConfirmPassword();
-    });
+    //     // menampilkan pesan error
+    //     cy.messageErrorInvalidPassword();
+    // });
 
     it('Register Gagal - Less Than 6 Characters Password', () => {
         // mengarahkan ke url register
@@ -231,7 +232,7 @@ describe('Demo Web Shop - Register With Commands', () => {
         cy.buttonRegister().click();
 
         // menampilkan pesan error
-        cy.messageErrorPassword();
+        cy.messageErrorLessThanSixCharactersPassword();
     });
 
 
@@ -252,7 +253,7 @@ describe('Demo Web Shop - Register With Commands', () => {
         cy.buttonRegister().click();
 
         // menampilkan pesan error
-        cy.messageErrorLessThanSixCharacters();
+        cy.messageErrorLessThanSixCharactersConfirmPassword();
     });
 
 

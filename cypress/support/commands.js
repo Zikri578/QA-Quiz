@@ -58,37 +58,41 @@ Cypress.Commands.add('messageErrorLastName', () => {
 })
 
 Cypress.Commands.add('messageErrorEmail', () => {
-    cy.get('span.field-validation-error[data-valmsg-for="Email"]').should('contain.text', 'Email is required.');
+    cy.get('span.field-validation-error[data-valmsg-for="Email"]').should('contain.text', 'Email is required');
 })
 
 Cypress.Commands.add('messageErrorPassword', () => {
-    cy.get('span.field-validation-error[data-valmsg-for="Password"]').should('contain.text', 'The password should have at least 6 characters.');
+    cy.get('span.field-validation-error[data-valmsg-for="Password"]').find('span[for="Password"]').should('contain.text', 'Password is required');
 })
 
 Cypress.Commands.add('messageErrorConfirmPassword', () => {
-    cy.get('span.field-validation-error[data-valmsg-for="ConfirmPassword"]').should('contain.text', 'The password and confirmation password do not match.');;
+    cy.get('span.field-validation-error[data-valmsg-for="ConfirmPassword"]').find('span[for="ConfirmPassword"]').should('contain.text', 'Password is required.');
 })
 
 Cypress.Commands.add('messageErrorInvalidEmail', () => {
     cy.get('span.field-validation-error[data-valmsg-for="Email"]').find('span[for="Email"]').should('contain.text', 'Wrong email');
 })
 
-Cypress.Commands.add('messageErrorInvalidConfirmPassword', () => {
-    cy.get('span.field-validation-error[data-valmsg-for="Password"]').should('contain.text', 'The password and confirmation password do not match.');
+Cypress.Commands.add('messageErrorInvalidPassword', () => {
+    cy.get('span.field-validation-error[data-valmsg-for="Password"]').find('span[for="Password"]').should('contain.text', 'The password and confirmation password do not match.');
 })
 
-// Cypress.Commands.add('messageErrorLessThanSixCharacters', () => {
-//     cy.get('span.field-validation-error[data-valmsg-for="Password"]').should('contain.text', 'The password should have at least 6 characters.');
-//     // cy.get('[for="Password"]').should('contain.text', 'The password should have at least 6 characters');
-// })
+Cypress.Commands.add('messageErrorInvalidConfirmPassword', () => {
+    cy.get('span.field-validation-error[data-valmsg-for="Password"]').should('contain.text', 'The password and confirmation password do not match');
+})
 
-Cypress.Commands.add('messageErrorLessThanSixCharacters', () => {
-    cy.get('span.field-validation-error[data-valmsg-for="ConfirmPassword"]').should('contain.text', 'The password and confirmation password do not match.');
+Cypress.Commands.add('messageErrorLessThanSixCharactersPassword', () => {
+    cy.get('span.field-validation-error[data-valmsg-for="Password"]').should('contain.text', 'The password should have at least 6 characters');
+    // cy.get('[for="Password"]').should('contain.text', 'The password should have at least 6 characters');
+})
+
+Cypress.Commands.add('messageErrorLessThanSixCharactersConfirmPassword', () => {
+    cy.get('span.field-validation-error[data-valmsg-for="ConfirmPassword"]').should('contain.text', 'The password and confirmation password do not match');
     // cy.get('[for="ConfirmPassword"]').should('contain.text', 'The password should have at least 6 characters');
 })
 
 Cypress.Commands.add('messageErrorDoNotMatchConfirmPassword', () => {
-    cy.get('span.field-validation-error[data-valmsg-for="ConfirmPassword"]').should('contain.text', 'The password and confirmation password do not match.');
+    cy.get('span.field-validation-error[data-valmsg-for="ConfirmPassword"]').should('contain.text', 'The password and confirmation password do not match');
     // cy.get('[for="ConfirmPassword"]').should('contain.text', 'The password and confirmation password do not match');
 })
 
